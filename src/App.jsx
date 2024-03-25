@@ -1,14 +1,11 @@
 import "./App.css";
-import Banner from "./Components/Banner/Banner";
-import Nav from "./Components/Nav/Nav";
+import Home from "./Components/Home/Home";
+ 
 
 function App() {
   return (
     <>
-      <div className="container mx-auto ">
-         <Nav></Nav>
-         <Banner></Banner>
-       </div>
+       <Home></Home>
     </>
   );
 }
