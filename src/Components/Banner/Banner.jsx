@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import img from "../../assets/Images/Cover.png";
 
 const Banner = () => {
@@ -10,9 +11,14 @@ const Banner = () => {
           </h1>
           <h1 className="text-6xl font-bold">up your bookshelf</h1>
         </div>
-        <button className="bg-[#23BE0A] py-3 px-5 text-white font-bold rounded-lg">
-          View The List
-        </button>
+        <div>
+        <Link to={"/books"}>
+          {" "}
+          <button className="bg-[#23BE0A] py-3 px-5 text-white font-bold rounded-lg">
+            View The List
+          </button>
+        </Link>
+        </div>
       </div>
       <div className="flex-1 flex items-center justify-end">
         <img src={img} alt="" />
