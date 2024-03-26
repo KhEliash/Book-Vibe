@@ -6,13 +6,9 @@ import { Link } from "react-router-dom";
 
 const Book = ({ b }) => {
   const { bookId, image, tags, bookName, author, category, rating } = b;
-  // console.log(b);
   return (
     <Link to={`/details/${bookId}`} className=" w-full">
-      <div
-        // key={b.id}
-        className="border flex flex-col items-center justify-start w-full rounded-xl p-6 space-y-4 shadow-lg"
-      >
+      <div className="border flex flex-col items-center justify-start w-full rounded-xl p-6 space-y-4 shadow-lg">
         <div className="bg-gray-100 w-full flex items-center justify-center p-5 rounded-xl">
           <img src={image} alt="" className="" />
         </div>
