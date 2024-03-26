@@ -12,12 +12,12 @@ const Banner = () => {
           <h1 className="text-6xl font-bold">up your bookshelf</h1>
         </div>
         <div>
-        <Link to={"/books"}>
-          {" "}
-          <button className="bg-[#23BE0A] py-3 px-5 text-white font-bold rounded-lg">
-            View The List
-          </button>
-        </Link>
+          <Link to={"/books"}>
+            {" "}
+            <button className="bg-[#23BE0A] py-3 px-5 text-white font-bold rounded-lg">
+              View The List
+            </button>
+          </Link>
         </div>
       </div>
       <div className="flex-1 flex items-center justify-end">

@@ -39,7 +39,7 @@ const Nav = (p) => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 space-y-2"
           >
             {link}
           </ul>
@@ -47,7 +47,7 @@ const Nav = (p) => {
         <a className="btn btn-ghost text-xl">Book Vibe</a>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 mx-3">{link}</ul>
+        <ul className="menu menu-horizontal px-1 space-x-3">{link}</ul>
       </div>
       <div className="navbar-end">
         <a className="btn bg-[#23BE0A] text-white font-bold">Sign In</a>
