@@ -1,4 +1,7 @@
+ 
 import { useLoaderData, useParams } from "react-router-dom";
+import { saveBooksAdd } from "../../Utility/LocalStorage";
+// import { saveBooksAdd } from "../../Utility/Utility";
 // import Book from './../Book/Book';
 
 const BookDetails = () => {
@@ -8,11 +11,21 @@ const BookDetails = () => {
   const bookIdInt = parseInt(bookId);
   const book = books.find((book) => book.bookId === bookIdInt);
 
-  console.log(book);
+  // console.log(book);
+
+  const handleRead =()=>{
+    saveBooksAdd(bookIdInt);
+  }
+
+
+
+
+
+
   return (
     <div className="flex gap-5">
       <div className="flex-1 flex items-center justify-center bg-gray-100 rounded-xl">
-        <img src={book.image} alt="" />
+        <img src={book.image} alt=""  className="h-96"/>
       </div>
 
       {/* right */}
@@ -56,7 +69,9 @@ const BookDetails = () => {
         </div>
 
         <div className="flex gap-5">
-          <button className="border  p-7 font-bold rounded-lg">Read</button>
+          <button 
+          onClick={handleRead}
+          className="border  p-7 font-bold rounded-lg">Read</button>
           <button className="   p-7 font-bold bg-[#50B1C9] text-white rounded-lg">
             Wishlist
           </button>
