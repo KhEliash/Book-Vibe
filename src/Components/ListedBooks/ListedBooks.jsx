@@ -14,7 +14,7 @@ const ListedBooks = () => {
 
   return (
     <div>
-      <div className="flex items-center justify-center font-bold text-3xl bg-gray-200 py-6 rounded-lg">
+      <div className="flex items-center justify-center font-bold text-3xl bg-gray-200 py-6 rounded-lg md:h-[250px]">
         <h1>Books</h1>
       </div>
 
@@ -31,16 +31,11 @@ const ListedBooks = () => {
             className={`tab ${activeTab === 2 ? "active-tab" : ""}`}
             onClick={() => handleTabClick(2)}
           >
-           WishList
+            WishList
           </Link>
         </div>
       </div>
 
-      {/* <div className="mt-5 flex gap-7">
-        <Link>Read Books</Link>
-
-        <Link to={"wishlist"}>WishList</Link>
-      </div> */}
       <Outlet></Outlet>
     </div>
   );

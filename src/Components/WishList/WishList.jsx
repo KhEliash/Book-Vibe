@@ -25,7 +25,7 @@ const WishList = () => {
 
   return (
     <div>
-      <div className="mt-12">
+      <div className="mt-4">
         {addedWish.map((b) => (
           <div
             key={b.id}
