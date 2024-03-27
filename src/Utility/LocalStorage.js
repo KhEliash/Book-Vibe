@@ -12,7 +12,7 @@ const getStoredBooks = () => {
     if(!exists){
       storedBooks.push(id);
       localStorage.setItem("Book",JSON.stringify(storedBooks))
-      ;
+      
     }
   };
   export { getStoredBooks, saveBooksAdd };

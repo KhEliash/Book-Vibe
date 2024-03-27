@@ -11,18 +11,30 @@ const ReadBooks = () => {
 
   useEffect(() => {
     const storedBooks = getStoredBooks();
-    if (books.length) {
-      const addedBooks = books.filter((book) =>
-        storedBooks.includes(book.bookId)
-      );
+    if (books.length>0) {
+const bookApplied =[];
+for(const bookId of storedBooks){
+  const book = books.find(book=>book.bookId === bookId);
+  if(book){
+    bookApplied.push(book)
+  }
+}
+setAddedBooks(bookApplied)
 
-      setAddedBooks(addedBooks);
+
+
+
+
+      // const addedBooks = books.filter((book) =>
+      //   storedBooks.includes(book.bookId)
+      // );
+      // setAddedBooks(addedBooks);
       // console.log(books, storedBooks, addedBooks);
     }
   }, [books]);
   return (
-    <div>
-      <h1>read</h1>
+    <div className="mt-12">
+       
       {addedBooks.map((b) => (
         <div key={b.id} className="flex   border rounded-xl p-5 gap-6 mb-4 space-y-4 items-center">
           <div className="bg-gray-100 w-[230px] flex items-center justify-center py-6 rounded-xl">
@@ -63,7 +75,7 @@ const ReadBooks = () => {
               <div className="flex items-center gap-6 mt-4">
                 <p className="bg-blue-200 text-blue-500 p-2 rounded-full">Category : {b.category}</p>
                 <p className="bg-orange-200 text-orange-500 p-2 rounded-full">Ratings : {b.category}</p>
-                <Link to={'/details/:bookId'}>
+                <Link to={'/viewDetails'}>
                 <button className="bg-green-500 text-white p-2 rounded-full">View Details</button>
                 </Link>
               </div>

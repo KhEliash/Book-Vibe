@@ -1,8 +1,8 @@
  
 import { useLoaderData, useParams } from "react-router-dom";
 import { saveBooksAdd } from "../../Utility/LocalStorage";
-// import { saveBooksAdd } from "../../Utility/Utility";
-// import Book from './../Book/Book';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const BookDetails = () => {
   const books = useLoaderData();
@@ -14,7 +14,12 @@ const BookDetails = () => {
   // console.log(book);
 
   const handleRead =()=>{
+    toast.success('Added successfully in Read Books')
     saveBooksAdd(bookIdInt);
+  }
+  const handleWish =()=>{
+    toast.success('Added successfully in Wishlist')
+     
   }
 
 
@@ -72,11 +77,15 @@ const BookDetails = () => {
           <button 
           onClick={handleRead}
           className="border  p-7 font-bold rounded-lg">Read</button>
-          <button className="   p-7 font-bold bg-[#50B1C9] text-white rounded-lg">
+          <button
+          onClick={handleWish}
+          className="   p-7 font-bold bg-[#50B1C9] text-white rounded-lg">
             Wishlist
           </button>
         </div>
+
       </div>
+      <ToastContainer />
     </div>
   );
 };
