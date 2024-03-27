@@ -23,7 +23,6 @@ const ReadBooks = () => {
     }
   }, [books]);
 
-  
   // console.log(books, storedBooks, addedBooks);
 
   return (
