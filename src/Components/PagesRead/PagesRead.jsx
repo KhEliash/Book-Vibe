@@ -9,7 +9,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-
+const colors = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "red", "pink"];
 // get data
 const PagesRead = () => {
   const books = useLoaderData();
@@ -33,8 +33,6 @@ const PagesRead = () => {
   }, [books]);
   console.log(addedBooks);
 
-  const colors = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "red", "pink"];
-
   const getPath = (x, y, width, height) => {
     return `M${x},${y + height}C${x + width / 3},${y + height} ${
       x + width / 2
@@ -53,29 +51,25 @@ const PagesRead = () => {
 
   return (
     <ResponsiveContainer width="100%" height="100%">
-    <div className="bg-gray-100 flex-col space-y-4 rounded-xl flex items-center justify-center p-7">
-      
-      <h1 className="text-3xl font-bold">Bar Chart of Read Books</h1>
-      {/* <ResponsiveContainer width={700} height="80%" > */}
-      <BarChart
-       width={700} height={500}
-        data={addedBooks}>
-        <XAxis dataKey="bookName" />
-        <YAxis dataKey="totalPages" />
+      <div className="bg-gray-100 flex-col space-y-4 rounded-xl flex items-center justify-center p-7">
+        <h1 className="text-3xl font-bold">Bar Chart of Read Books</h1>
+        {/* <ResponsiveContainer width={700} height="80%" > */}
+        <BarChart width={700} height={500} data={addedBooks}>
+          <XAxis dataKey="bookName" />
+          <YAxis dataKey="totalPages" />
 
-        <Bar
-          dataKey="totalPages"
-          shape={<TriangleBar />}
-          label={{ position: "top" }}
-        >
-          {addedBooks.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={colors[index % 20]} />
-          ))}
-        </Bar>
-      </BarChart>
-      {/* </ResponsiveContainer> */}
-
-    </div>
+          <Bar
+            dataKey="totalPages"
+            shape={<TriangleBar />}
+            label={{ position: "top" }}
+          >
+            {addedBooks.map((entry, index) => (
+              <Cell key={`cell-${index}`} fill={colors[index % 20]} />
+            ))}
+          </Bar>
+        </BarChart>
+        {/* </ResponsiveContainer> */}
+      </div>
     </ResponsiveContainer>
   );
 };
