@@ -10,11 +10,14 @@ import BookDetails from "./Components/BookDetails/BookDetails.jsx";
 import ReadBooks from "./Components/ReadBooks/ReadBooks.jsx";
 import WishList from "./Components/WishList/WishList.jsx";
 import ViewDetails from "./Components/ViewDetails/ViewDetails.jsx";
+import Error from "./Components/Error/Error.jsx";
+import AboutUs from "./Components/About/AboutUs.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement: <Error></Error>,
     children: [
       {
         path: "/",
@@ -52,6 +55,10 @@ const router = createBrowserRouter([
       {
         path: "/viewDetails",
         element: <ViewDetails></ViewDetails>,
+       },
+      {
+        path: "/about",
+        element: <AboutUs></AboutUs>,
        },
     ],
   },

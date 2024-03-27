@@ -15,6 +15,12 @@ const Nav = (p) => {
     <li key={p.id}>
       <NavLink to="/read">Pages to Read</NavLink>
     </li>,
+    <li key={p.id}>
+      <NavLink to="/error">Error Page</NavLink>
+    </li>,
+    <li key={p.id}>
+      <NavLink to="/about">About Us</NavLink>
+    </li>,
   ];
 
   return (
