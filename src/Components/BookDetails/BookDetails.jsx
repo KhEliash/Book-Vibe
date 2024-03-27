@@ -1,8 +1,11 @@
- 
 import { useLoaderData, useParams } from "react-router-dom";
-import { saveBooksAdd } from "../../Utility/LocalStorage";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { getStoredBooks, saveBooksAdd } from "../../Utility/LocalStorage";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import {
+  removeBookFromWishlist,
+  saveBooksWish,
+} from "../../Utility/LocalStorage2";
 
 const BookDetails = () => {
   const books = useLoaderData();
@@ -11,26 +14,35 @@ const BookDetails = () => {
   const bookIdInt = parseInt(bookId);
   const book = books.find((book) => book.bookId === bookIdInt);
 
-  // console.log(book);
+  const handleRead = () => {
+    const storedBooks = getStoredBooks(); // Get stored books
+    const isBookInWishlist = storedBooks.includes(bookIdInt);
+    console.log(isBookInWishlist);
+    if (isBookInWishlist) {
+      removeBookFromWishlist(bookIdInt);
+    }
 
-  const handleRead =()=>{
-    toast.success('Added successfully in Read Books')
+    toast.success("Added successfully in Read Books");
     saveBooksAdd(bookIdInt);
-  }
-  const handleWish =()=>{
-    toast.success('Added successfully in Wishlist')
-     
-  }
+  };
 
+  const handleWish = () => {
+    saveBooksWish(bookIdInt);
 
-
-
-
+    const storedBooks = getStoredBooks();
+    const isBookInRead = storedBooks.includes(bookIdInt);
+    if (isBookInRead) {
+      toast.error("This book is already in your Read Books");
+    } else {
+      toast.success("Added successfully in Wishlist");
+      saveBooksWish(bookIdInt);
+    }
+  };
 
   return (
     <div className="flex gap-5">
       <div className="flex-1 flex items-center justify-center bg-gray-100 rounded-xl">
-        <img src={book.image} alt=""  className="h-96"/>
+        <img src={book.image} alt="" className="h-96" />
       </div>
 
       {/* right */}
@@ -74,16 +86,19 @@ const BookDetails = () => {
         </div>
 
         <div className="flex gap-5">
-          <button 
-          onClick={handleRead}
-          className="border  p-7 font-bold rounded-lg">Read</button>
           <button
-          onClick={handleWish}
-          className="   p-7 font-bold bg-[#50B1C9] text-white rounded-lg">
+            onClick={handleRead}
+            className="border  p-7 font-bold rounded-lg"
+          >
+            Read
+          </button>
+          <button
+            onClick={handleWish}
+            className="   p-7 font-bold bg-[#50B1C9] text-white rounded-lg"
+          >
             Wishlist
           </button>
         </div>
-
       </div>
       <ToastContainer />
     </div>
