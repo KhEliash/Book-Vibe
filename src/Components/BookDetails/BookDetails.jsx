@@ -15,15 +15,21 @@ const BookDetails = () => {
   const book = books.find((book) => book.bookId === bookIdInt);
 
   const handleRead = () => {
-    const storedBooks = getStoredBooks(); // Get stored books
+    const storedBooks = getStoredBooks();
     const isBookInWishlist = storedBooks.includes(bookIdInt);
     console.log(isBookInWishlist);
     if (isBookInWishlist) {
       removeBookFromWishlist(bookIdInt);
     }
 
-    toast.success("Added successfully in Read Books");
-    saveBooksAdd(bookIdInt);
+    // const storedBooks = getStoredBooks();
+    const isBookInRead = storedBooks.includes(bookIdInt);
+    if (isBookInRead) {
+      toast.error("This book is already in your Read Books");
+    } else {
+      saveBooksAdd(bookIdInt);
+      toast.success("Added successfully in Read Books");
+    }
   };
 
   const handleWish = () => {
@@ -34,8 +40,8 @@ const BookDetails = () => {
     if (isBookInRead) {
       toast.error("This book is already in your Read Books");
     } else {
-      toast.success("Added successfully in Wishlist");
       saveBooksWish(bookIdInt);
+      toast.success("Added successfully in Wishlist");
     }
   };
 

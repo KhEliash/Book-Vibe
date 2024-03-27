@@ -1,35 +1,46 @@
 // import { useEffect, useState } from "react";
+import { useState } from "react";
+import "./ListedBooks.css";
 import { Link, Outlet, useLoaderData } from "react-router-dom";
 // import { getStoredBooks } from "../../Utility/LocalStorage";
 // import ReadBooks from "../ReadBooks/ReadBooks";
 
 const ListedBooks = () => {
-  // const books = useLoaderData();
-  // const [addedBooks, setAddedBooks] = useState([]);
+  const [activeTab, setActiveTab] = useState(1);
 
-  // useEffect(() => {
-  //   const storedBooks = getStoredBooks();
-  //   if (books.length) {
-  //     const addedBooks = books.filter((book) =>
-  //       storedBooks.includes(book.bookId)
-  //     );
+  const handleTabClick = (tabNumber) => {
+    setActiveTab(tabNumber);
+  };
 
-  //     setAddedBooks(addedBooks);
-  //     // console.log(books, storedBooks, addedBooks);
-  //   }
-  // }, [books]);
   return (
     <div>
       <div className="flex items-center justify-center font-bold text-3xl bg-gray-200 py-6 rounded-lg">
         <h1>Books</h1>
       </div>
 
-      <div className="mt-5 flex gap-7">
+      <div className="tabs-container mt-5">
+        <div className="tabs">
+          <Link
+            className={`tab ${activeTab === 1 ? "active-tab " : ""}`}
+            onClick={() => handleTabClick(1)}
+          >
+            Read Books
+          </Link>
+          <Link
+            to={"wishlist"}
+            className={`tab ${activeTab === 2 ? "active-tab" : ""}`}
+            onClick={() => handleTabClick(2)}
+          >
+           WishList
+          </Link>
+        </div>
+      </div>
+
+      {/* <div className="mt-5 flex gap-7">
         <Link>Read Books</Link>
 
         <Link to={"wishlist"}>WishList</Link>
-       
-      </div>
+      </div> */}
       <Outlet></Outlet>
     </div>
   );

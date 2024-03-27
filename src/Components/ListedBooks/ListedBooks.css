@@ -1,0 +1,34 @@
+.tabs-container {
+  /* border: 1px solid #ccc; */
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.tabs {
+  display: flex;
+  color: black;
+}
+
+.tab {
+  cursor: pointer;
+  color: #4b4b4b;
+  text-decoration: none;
+  border: 2px solid #ccc;
+}
+
+.tab:hover {
+  background-color: #f0f0f0;
+}
+
+.active-tab {
+  /* background-color: #69ff5b; */
+  color: #1ae238;
+  border-bottom: none;
+  font-weight: bold;
+  /* padding: 40px; */
+}
+
+.tab-content {
+  padding: 20px;
+  background-color: #ffffff;
+}
