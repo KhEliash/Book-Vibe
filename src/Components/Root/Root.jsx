@@ -3,7 +3,7 @@ import Nav from "../Nav/Nav";
 
 const Root = () => {
   return (
-    <div className="container mx-auto">
+    <div className="container mx-4 md:mx-auto">
       <Nav></Nav>
       <Outlet></Outlet>
     </div>
