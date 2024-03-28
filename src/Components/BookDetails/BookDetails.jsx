@@ -46,7 +46,7 @@ const BookDetails = () => {
   };
 
   return (
-    <div className="flex gap-5 flex-col md:flex-row">
+    <div className="flex gap-5 flex-col md:flex-row px-4">
       <div className="flex-1 flex items-center justify-center bg-gray-100 rounded-xl py-6 md:py-0">
         <img src={book.image} alt="" className="h-auto md:h-96" />
       </div>

@@ -7,7 +7,7 @@ import Books from "../Books/Books";
 
 const Home = () => {
     return (
-        <div className="container mx-4 md:mx-auto ">
+        <div className="container  md:mx-auto ">
              <Banner></Banner>
             <Books></Books>
         </div>

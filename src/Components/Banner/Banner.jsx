@@ -3,7 +3,7 @@ import img from "../../assets/Images/Cover.png";
 
 const Banner = () => {
   return (
-    <div className="bg-gray-100 md:h-[554px] px-5 py-4 md:px-28 flex items-center justify-between mt-4 rounded-xl">
+    <div className="bg-gray-100 md:h-[554px] px-5 py-4 md:px-28 flex items-center justify-center md:justify-between mt-4 rounded-xl">
       <div className="flex-1  w-full  space-y-3 md:space-y-12">
         <div className="space-y-2 md:space-y-5">
           <h1 className="text-2xl md:text-6xl font-bold">
